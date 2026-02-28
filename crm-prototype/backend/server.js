@@ -6,6 +6,8 @@ const cors = require('cors');
 const leadsRouter = require('./routes/leads');
 const followupsRouter = require('./routes/followups');
 const testRouter = require('./routes/test');
+const chatRouter = require('./routes/chat');
+const propertiesRouter = require('./routes/properties');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -20,6 +22,8 @@ app.get('/health', (req, res) => res.json({ status: 'ok' }));
 app.use('/leads', leadsRouter);
 app.use('/followups', followupsRouter);
 app.use('/test', testRouter);
+app.use('/chat', chatRouter);
+app.use('/properties', propertiesRouter);
 
 // 404 handler
 app.use((req, res) => {
